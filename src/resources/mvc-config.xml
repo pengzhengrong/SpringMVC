@@ -8,21 +8,16 @@
 		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-3.0.xsd">
 
 	<mvc:annotation-driven />
-	<!-- 
-	<mvc:interceptors>
-		<bean class="com.channelsoft.portal.sso.filter.SqlInjectIntercepter">
-			<property name="IGNORE_URL" value="/bwlist/add, /bwlist/update, /bwlist/delete"></property>
-		</bean>
-	</mvc:interceptors>
-	 -->
-	 <!-- 如果登入路径为/，那么自动跳转view页面 -->
+	<!-- <mvc:interceptors> <bean class="com.channelsoft.portal.sso.filter.SqlInjectIntercepter"> 
+		<property name="IGNORE_URL" value="/bwlist/add, /bwlist/update, /bwlist/delete"></property> 
+		</bean> </mvc:interceptors> -->
+	<!-- 如果登入路径为/，那么自动跳转view页面 -->
 	<mvc:view-controller path="/" view-name="login/login" />
-	
+
 	<!-- Configures the @Controller programming model -->
-	<!-- 会自动注册DefaultAnnotationHandlerMapping与AnnotationMethodHandlerAdapter
-		  两个bean,是spring MVC为@Controllers分发请求所必须的。
-		  并提供了：数据绑定支持，@NumberFormatannotation支持，
-		 @DateTimeFormat支持，@Valid支持，读写XML的支持（JAXB），读写JSON的支持（Jackson）。 -->
+	<!-- 会自动注册DefaultAnnotationHandlerMapping与AnnotationMethodHandlerAdapter 
+		两个bean,是spring MVC为@Controllers分发请求所必须的。 并提供了：数据绑定支持，@NumberFormatannotation支持， 
+		@DateTimeFormat支持，@Valid支持，读写XML的支持（JAXB），读写JSON的支持（Jackson）。 -->
 	<mvc:annotation-driven />
 	<bean
 		class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
@@ -43,12 +38,12 @@
 	<!-- 对转向页面的路径解析。prefix：前缀，suffix：后缀。 -->
 	<bean id="freemarkerResolver"
 		class="org.springframework.web.servlet.view.freemarker.FreeMarkerViewResolver">
-		<property name="cache" value="false"/>		
+		<property name="cache" value="false" />
 		<property name="contentType" value="text/html;charset=utf-8" />
 		<property name="prefix" value="" />
 		<property name="suffix" value=".jsp" />
 		<!-- 请求的参数可以用 ${rc.xxx}取值了吗? -->
-		<property name="requestContextAttribute" value="rc" /> 
+		<property name="requestContextAttribute" value="rc" />
 	</bean>
 
 	<!-- 对请求跳转页面的属性配置? -->
@@ -70,7 +65,7 @@
 	</bean>
 	<bean id="multipartResolver"
 		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
-		<!--  设置上传文件大小的参数 ，当前为10M -->
+		<!-- 设置上传文件大小的参数 ，当前为10M -->
 		<property name="maxUploadSize" value="10485760" />
 	</bean>
 
